@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国美食探索</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.png" type="image/png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <style>
+    #gif-image {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 200px;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
 <!-- 顶部导航栏 -->
@@ -27,6 +37,8 @@
     <button type="submit">登录</button>
   </form>
 </section>
+<!-- GIF图片 -->
+<img id="gif-image" src="assets/login-alpha.gif" alt="可爱小汉堡">
 <!-- 动画 -->
 <script>
   // 导航栏渐入效果
@@ -43,6 +55,14 @@
     opacity: [1],
     duration: 2000,
     easing: 'easeOutElastic'
+  })
+  // gif动画
+  anime({
+    targets: '#gif-image',
+    translateX: [20, 0],
+    opacity: [0, 1],
+    duration: 1000,
+    easing: 'easeInOutQuad'
   })
 </script>
 </body>
