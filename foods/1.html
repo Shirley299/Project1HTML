@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国美食探索</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<nav>
+  <a href="../index.html">首页</a>
+  <a href="../catalog.html">目录</a>
+  <a href="../login.html">登录</a>
+</nav>
+<!-- 美食介绍 -->
+<section id="food-intro">
+  <h2>北京烤鸭</h2>
+  <figure>
+    <img src="../imgs/01.webp" alt="北京烤鸭图片">
+    <figcaption>鲜嫩可口的北京烤鸭（图片来源：知乎）</figcaption>
+  </figure>
+  <p>烤鸭是具有世界声誉的北京著名菜式，起源于中国南北朝时期，《食珍录》中已记有炙鸭，是当时的宫廷食品。用料为优质肉食鸭北京鸭，果木炭火烤制，色泽红润，肉质肥而不腻，外脆里嫩。它以色泽红艳，肉质鲜嫩，味道敦厚，肥而不腻的特色，被誉为“天下美味”。</p>
+  <video controls>
+    <source src="../videos/01.mp4" type="video/mp4">
+    您的浏览器不支持视频标签。
+  </video>
+</section>
+<!-- 链接到目录页的按钮 -->
+<section id="explore">
+  <button onclick="window.location.href='../catalog.html'">回到美食目录</button>
+</section>
+<!-- 动画 -->
+<script>
+  // 导航栏渐入效果
+  anime({
+    targets: 'nav',
+    opacity: [0, 1],
+    duration: 2000,
+    easing: 'easeInOutQuad'
+  })
+  // 美食介绍内容的渐入动画
+  anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+  })
+    .add({
+      targets: '#food-intro h2, #food-intro figure, #food-intro p, #food-intro video',
+      opacity: [0, 1],
+      translateY: [-40, 0],
+      delay: anime.stagger(150)  // 每个元素的动画将延迟150毫秒
+    })
+    .add({
+      targets: '#explore button',
+      opacity: [0, 1],
+      translateY: [-20, 0],
+      offset: '-=400'  // 按钮动画在最后一个元素开始动画之前开始
+    })
+</script>
+</body>
+</html>

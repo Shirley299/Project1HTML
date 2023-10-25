@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国美食探索</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<nav>
+  <a href="index.html">首页</a>
+  <a href="catalog.html">目录</a>
+  <a href="login.html">登录</a>
+</nav>
+<!-- 网站介绍 -->
+<section id="intro">
+  <h1>欢迎来到中国美食探索</h1>
+  <p>探索中国的丰富美食，发现各种各样的味道和食谱！</p>
+</section>
+<!-- 美食图片轮播 -->
+<section id="carousel">
+  <figure class="show">
+    <img src="imgs/01.webp" alt="北京烤鸭">
+    <figcaption>北京烤鸭</figcaption>
+  </figure>
+  <figure>
+    <img src="imgs/02.webp" alt="驴打滚">
+    <figcaption>驴打滚</figcaption>
+  </figure>
+</section>
+<!-- 链接到目录页的按钮 -->
+<section id="explore">
+  <button onclick="window.location.href='catalog.html'">探索更多美食</button>
+</section>
+<!-- 动画 -->
+<script>
+  // 导航栏渐入效果
+  anime({
+    targets: 'nav',
+    opacity: [0, 1],
+    duration: 2000,
+    easing: 'easeInOutQuad'
+  })
+  // 内容渐入效果
+  anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+  })
+    .add({
+      targets: '#intro h1, #intro p',
+      opacity: [0, 1],
+      translateY: [-40, 0],
+      delay: anime.stagger(150)  // 每个元素的动画将延迟150毫秒
+    })
+    .add({
+      targets: '#explore button',
+      opacity: [0, 1],
+      translateY: [-20, 0],
+      offset: '-=400'  // 这将使按钮动画在最后一个元素开始动画之前开始
+    })
+  // 图片轮播
+  let currentSlide = 0
+  let slides = document.querySelectorAll('#carousel figure')
+  let totalSlides = slides.length
+  const nextSlide = () => {
+    anime({
+      targets: slides[currentSlide],
+      opacity: [1, 0],
+      duration: 1000,
+      easing: 'easeInOutQuad'
+    })
+    slides[currentSlide].classList.remove('show')
+    currentSlide = (currentSlide + 1) % totalSlides
+    slides[currentSlide].classList.add('show')
+    anime({
+      targets: slides[currentSlide],
+      opacity: [0, 1],
+      duration: 1000,
+      easing: 'easeInOutQuad'
+    })
+  }
+  // 每3秒切换到下一张图片
+  setInterval(nextSlide, 3000)
+</script>
+</body>
+</html>

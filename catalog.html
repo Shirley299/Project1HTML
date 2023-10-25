@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国美食探索</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<nav>
+  <a href="index.html">首页</a>
+  <a href="catalog.html">目录</a>
+  <a href="login.html">登录</a>
+</nav>
+<!-- 美食目录 -->
+<section id="catalog">
+  <h2>美食目录</h2>
+  <ul>
+    <li><a href="foods/1.html">北京烤鸭</a></li>
+    <li><a href="foods/2.html">驴打滚</a></li>
+  </ul>
+</section>
+<!-- 动画 -->
+<script>
+  // 导航栏渐入效果
+  anime({
+    targets: 'nav',
+    opacity: [0, 1],
+    duration: 2000,
+    easing: 'easeInOutQuad'
+  })
+  // 目录列表动画
+  anime({
+    targets: '#catalog ul li',
+    translateY: [-10, 0],
+    opacity: [0, 1],
+    duration: 1000,
+    delay: anime.stagger(200),  // 每个列表项的动画将延迟200毫秒
+    easing: 'easeOutElastic'
+  })
+</script>
+</body>
+</html>

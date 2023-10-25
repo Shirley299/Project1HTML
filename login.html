@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国美食探索</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<nav>
+  <a href="index.html">首页</a>
+  <a href="catalog.html">目录</a>
+  <a href="login.html">登录</a>
+</nav>
+<!-- 登录表单 -->
+<section id="login-form" style="opacity: 0; transform: translateY(-50px);">
+  <h2>用户登录</h2>
+  <form>
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">登录</button>
+  </form>
+</section>
+<!-- 动画 -->
+<script>
+  // 导航栏渐入效果
+  anime({
+    targets: 'nav',
+    opacity: [0, 1],
+    duration: 2000,
+    easing: 'easeInOutQuad'
+  })
+  // 登录表单滑入效果
+  anime({
+    targets: '#login-form',
+    translateY: [0],
+    opacity: [1],
+    duration: 2000,
+    easing: 'easeOutElastic'
+  })
+</script>
+</body>
+</html>
