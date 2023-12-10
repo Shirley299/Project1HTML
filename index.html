@@ -59,22 +59,24 @@
       targets: '#explore button',
       opacity: [0, 1],
       translateY: [-20, 0],
-      offset: '-=400'  // 这将使按钮动画在最后一个元素开始动画之前开始
     })
   // 图片轮播
   let currentSlide = 0
   let slides = document.querySelectorAll('#carousel figure')
   let totalSlides = slides.length
   const nextSlide = () => {
+    // 使当前幻灯片变透明
     anime({
       targets: slides[currentSlide],
       opacity: [1, 0],
       duration: 1000,
       easing: 'easeInOutQuad'
     })
+    // 选择到下一个幻灯片
     slides[currentSlide].classList.remove('show')
     currentSlide = (currentSlide + 1) % totalSlides
     slides[currentSlide].classList.add('show')
+    // 使新的幻灯片从透明变显示
     anime({
       targets: slides[currentSlide],
       opacity: [0, 1],
