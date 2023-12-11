@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国美食探索</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/Fuukei/Public_Repository@latest/static/js/sakura-less.js"></script>
 </head>
@@ -23,12 +23,6 @@
   <h1 class="blink">欢迎来到中国美食探索</h1>
   <p>探索中国的丰富美食，发现各种各样的味道和食谱！</p>
 </section>
-<!-- 背景音乐 -->
-<section>
-  <audio autoplay loop>
-    <source src="media/bg_music.mp3" type="audio/mpeg">
-  </audio>
-</section>
 <!-- 美食图片轮播 -->
 <section id="carousel">
   <figure class="show">
@@ -43,6 +37,12 @@
 <!-- 链接到目录页的按钮 -->
 <section id="explore">
   <button onclick="window.location.href='catalog.html'">探索更多美食</button>
+</section>
+<!-- 背景音乐 -->
+<section>
+  <audio autoplay loop id="bg-music">
+    <source src="media/bg_music.mp3" type="audio/mpeg">
+  </audio>
 </section>
 <!-- 动画 -->
 <script>
@@ -92,6 +92,15 @@
   }
   // 每3秒切换到下一张图片
   setInterval(nextSlide, 3000)
+  // 背景音乐
+  document.addEventListener('DOMContentLoaded', () => {
+    let audioElement = document.getElementById('bg-music');
+    if (audioElement) {
+      audioElement.play().catch(error => {
+        console.log('自动播放失败: ', error);
+      });
+    }
+  });
 </script>
 <script src="script.js"></script>
 </body>
