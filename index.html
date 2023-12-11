@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国美食探索</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="icon.png" type="image/png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Fuukei/Public_Repository@latest/static/js/sakura-less.js"></script>
 </head>
 <body>
+<script src="script.js"></script>
+<!-- 背景图片 -->
+<div class="background"></div>
 <!-- 顶部导航栏 -->
 <nav>
   <a href="index.html">首页</a>
@@ -17,8 +21,14 @@
 </nav>
 <!-- 网站介绍 -->
 <section id="intro">
-  <h1>欢迎来到中国美食探索</h1>
+  <h1 class="blink">欢迎来到中国美食探索</h1>
   <p>探索中国的丰富美食，发现各种各样的味道和食谱！</p>
+</section>
+<!-- 背景音乐 -->
+<section>
+  <audio autoplay loop>
+    <source src="media/bg_music.mp3" type="audio/mpeg">
+  </audio>
 </section>
 <!-- 美食图片轮播 -->
 <section id="carousel">
@@ -65,18 +75,15 @@
   let slides = document.querySelectorAll('#carousel figure')
   let totalSlides = slides.length
   const nextSlide = () => {
-    // 使当前幻灯片变透明
     anime({
       targets: slides[currentSlide],
       opacity: [1, 0],
       duration: 1000,
       easing: 'easeInOutQuad'
     })
-    // 选择到下一个幻灯片
     slides[currentSlide].classList.remove('show')
     currentSlide = (currentSlide + 1) % totalSlides
     slides[currentSlide].classList.add('show')
-    // 使新的幻灯片从透明变显示
     anime({
       targets: slides[currentSlide],
       opacity: [0, 1],

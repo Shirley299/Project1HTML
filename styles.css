@@ -41,10 +41,6 @@ nav a {
   padding: 2em;
   text-align: center;
 }
-#intro h1 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-}
 #explore {
   background-color: #333;
   padding: 2em;
@@ -63,21 +59,26 @@ nav a {
 #explore button:hover {
   background-color: #ff8033;
 }
-#login-form {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+
+#login-form {  
+  background-color: #333;
+  border: 1px solid #333;
   padding: 2em;
   margin: 2em auto;
   width: 300px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-image: linear-gradient(rgb(214, 118, 39),rgb(163, 173, 190));
 }
+
 #login-form h2 {
+  color:#fff;
   margin-bottom: 1em;
   font-size: 1.5em;
 }
 #login-form label {
+  color: #fff;
   display: block;
   text-align: left;
   margin-bottom: 0.5em;
@@ -103,8 +104,8 @@ nav a {
   background-color: #ff8033;
 }
 #catalog {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  background-color: #333;
+  border: 1px solid #333;
   padding: 2em;
   margin: 2em auto;
   width: 60%;
@@ -113,6 +114,7 @@ nav a {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 #catalog h2 {
+  color: #fff;
   margin-bottom: 1em;
   font-size: 1.5em;
 }
@@ -121,19 +123,22 @@ nav a {
   padding: 0;
 }
 #catalog ul li {
-  background-color: #fff;
+  background-color: #ff5733;
   margin-bottom: 1em;
   padding: 1em;
-  border: 1px solid #ccc;
+  border: 1px solid #ff5733;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
+#catalog a:hover{
+  background-color: #ff8033;
+}
 #catalog ul li a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
 }
 #catalog ul li:hover {
-  background-color: #e0f7fa;
+  background-color: #ff8033;
 }
 #food-intro {
   background-color: #f9f9f9;
@@ -157,4 +162,27 @@ nav a {
 #food-intro video {
   width: 100%;
   border-radius: 8px;
+}
+.myclass {
+  letter-spacing:5px;
+  color: red;
+  font-weight:bold;
+  font-size:46px;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  z-index: -10;
+  zoom: 1;
+  background-color: #fff;
+  background-image: url(imgs/bg.jfif) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-position: center 0;
 }
