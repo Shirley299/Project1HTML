@@ -163,12 +163,6 @@ nav a {
   width: 100%;
   border-radius: 8px;
 }
-.myclass {
-  letter-spacing:5px;
-  color: red;
-  font-weight:bold;
-  font-size:46px;
-}
 .background {
   position: fixed;
   top: 0;
